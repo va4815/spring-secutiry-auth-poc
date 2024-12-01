@@ -1,5 +1,6 @@
 package com.va4815.springsecutiryauthpoc.entity;
 
+import com.va4815.springsecutiryauthpoc.HttpBody.request.UserRequestBody;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,9 +17,8 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String username) {
-        this.id = id;
-        this.username = username;
+    public User(UserRequestBody requestBody) {
+        this.username = requestBody.getUsername();
     }
 
     public Long getId() {

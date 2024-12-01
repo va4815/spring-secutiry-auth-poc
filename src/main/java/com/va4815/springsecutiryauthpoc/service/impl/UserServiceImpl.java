@@ -1,5 +1,6 @@
 package com.va4815.springsecutiryauthpoc.service.impl;
 
+import com.va4815.springsecutiryauthpoc.HttpBody.request.UserRequestBody;
 import com.va4815.springsecutiryauthpoc.entity.User;
 import com.va4815.springsecutiryauthpoc.repository.UserRepository;
 import com.va4815.springsecutiryauthpoc.service.UserService;
@@ -22,5 +23,11 @@ public class UserServiceImpl implements UserService {
         userRepository.findAll().forEach(users::add);
 
         return users;
+    }
+
+    @Override
+    public User createUser(UserRequestBody requestBody) {
+        User user = new User(requestBody);
+        return userRepository.save(user);
     }
 }
